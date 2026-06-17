@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+
+        body {
+            background-color: #F7F5F0;
+            color: #1C1C1A;
+            font-family: Georgia, serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+            border-bottom: 1px solid #DDD9D0
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            color: #7a7872;
+            font-size: 0.95rem;
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #DDD9D0;
+        }
+
+        section p:first-child {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #6B8F71;
+        }
+        
+        section h2 {
+            font-size: 2rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+        
+        section p {
+            color: #7A7872;
+            font-size: 0.95rem;
+            max-width: 560px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #DDD9D0;
+            letter-spacing: 0.08em;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid #1C1C1A;
+            background: transparent;
+            color: #1C1C1A;
+            font-family: Georgia, serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+        }
+
+        body.dark {
+            background-color: #1C1C1A;
+            color: #F7F5F0;
+        }
+
+        body.dark header,
+        body.dark section {
+            border-color: #333330;
+        }
+        body.dark button {
+            border-color: #F7F5F0;
+            border-color: #F7F5F0;
+            color: #F7F5F0;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #F7F5F0;
+            border-bottom: 1px solid #DDD9D0;
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 2rem;
+            z-index: 100;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #7a7872;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #1c1c1a;
+        }
+
+        body.dark nav {
+            background-color: #1c1c1a;
+            border-color: #333330;
+        }
+
+        section img {
+            width: 100%;
+            max-width: 560px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: block;
+        }
+    </style>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Creative Corner</title>
+    </head>
+    <body>
+        <nav>
+            <a href="#voice-acting">Voice Acting</a>
+            <a href="#programming">Programming</a>
+            <a href="#animation">Animation</a>
+            <a href="#Japanese">Japanese</a>
+        </nav>
+        <header>
+            <p>Welcome</p>
+            <h1>My Creative Corner</h1>
+            <p>A little space on the internet for the things I love - voice acting, programming, animation, and learning Japanese.</p>
+            <button id="darkToggle">Dark Mode</button>
+        </header>
+        <main>
+
+            <section id="voice-acting">
+                <p>Hobby 01</p>
+                <h2>Voice Acting</h2>
+                <img src="Voice acting.jpg" alt="Recording booth" />
+                <p>Voice acting is a great way to get away from the stress of life, especially when you do it with your friends. I love watching a character come to life because they are given a voice, it's honestly a pretty special feeling.</p>
+                <p>I have done a few fan dubs and have actually voice acted for a custom character once before. It was very entertaining and almost fills you with a sense of pride to see your voice emitting from this creation.</p>
+            </section>
+            
+            <section id="programming">
+                <p>Hobby 02</p>
+                <h2>Programming</h2>
+                <img src="progammer-code-coding-16-10-2024-1729112992-hd-wallpaper-2359122482.png" alt="Code stuff" />
+                <p>Programming as been a bit of a fickle interest for me, mainly because I usually learn on sporadic bursts of inspiration. The very few things I have tried "Programming" have been: Video game creation, Website building, and app designing.</p>
+                <p>I haven't been officially diagnosed with ADHD but I feel that it's a pretty big factor in learning experiences for me. Either I'll hyper focus or I'll completely lose all interest in a subject. So while I love to program, I often find it difficult to keep consistancy.</p>
+            </section>
+
+            <section id="animation">
+                <p>Hobby 03</p>
+                <h2>Animation</h2>
+                <img src="animation image.jpg" alt="Animating" />
+                <p>Animation is an interesting topic for me because it falls in very close with my love for game design. I am not very great at building the game itself, but I do enjoy animating whilst my friend actually does all of the complex stuff.</p>
+            </section>
+
+            <section id="Japanese">
+                <p>Hobby 04</p>
+                <h2>Learning Japanese</h2>
+                <img src="Japanese dictionary image.jpg" alt="Japan" />
+                <p>I find the Japanese language quite fun and rather elegant. I don't take much interest in the culture but I figure it'd be important to learn it anyway, just incase I happen to speak with a native. I do quite enjoy the entertainment such as: Movies, cartoons, books, and games.</p>
+            </section>
+        </main>
+        <footer>
+            <p>Made with care - My Creative Corner</p>
+        </footer>
+        <script>
+  const toggle = document.getElementById('darkToggle');
+
+  toggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark');
+
+    if (document.body.classList.contains('dark')) {
+      toggle.textContent = 'Light Mode';
+    } else {
+      toggle.textContent = 'Dark Mode';
+    }
+  });
+</script>
+    </body>
+</html>
