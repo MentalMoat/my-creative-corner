@@ -138,6 +138,229 @@
             margin: 1rem 0;
             display: block;
         }
+
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background-color: #6B8F71;
+            z-index: 200;
+            transition: width 0.1s ease;
+        }
+
+        section img {
+            transition: transform 0.4s ease;
+        }
+
+        section img:hover {
+            transform: scale(1.03);
+        }
+
+        .img-wrap {
+            overflow: hidden;
+            border-radius: 4px;
+            max-width: 560px;
+        }
+
+        #magnifier-icon {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.2s ease;
+        }
+
+        #magnifier-icon.outline {
+            opacity: 0.3;
+            filter: grayscale(100%);
+        }
+
+        #magnifier-lens {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #6B8F71;
+            pointer-events: none;
+            display: none;
+            z-index: 999;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        #vintagePC {
+            font-size: 2rem;
+            cursor: pointer;
+            display: block;
+            margin-top: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        #vintagePC:hover {
+            transform: scale( 1.2);
+        }
+
+        #os-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #008080;
+    font-family: 'Courier New', monospace;
+}
+
+#desktop {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#taskbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #C0C0C0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+#start-btn {
+    background: #C0C0C0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+#power-btn {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#clock {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.app-icon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 0.75rem;
+    text-shadow: 1px 1px 2px black;
+    width: 70px;
+    text-align: center;
+}
+
+.app-icon span {
+    font-size: 0.7rem;
+}
+
+.app-icon:hover {
+    opacity: 0.8;
+}
+
+.app-icon:nth-child(2) { top: 2rem; left: 2rem; font-size: 2.5rem; }
+.app-icon:nth-child(3) { top: 10rem; left: 2rem; font-size: 2.5rem; }
+.app-icon:nth-child(4) { top: 18rem; left: 2rem; font-size: 2.5rem; }
+.app-icon:nth-child(5) { top: 26rem; left: 2rem; font-size: 2.5rem; }
+
+
+.window {
+    display: none;
+    position: absolute;
+    top: 5rem;
+    left: 10rem;
+    width: 320px;
+    background: #C0C0C0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    box-shadow: 4px 4px 0px #000000;
+    z-index: 100;
+}
+
+.window-titlebar {
+    background: #000080;
+    color: white;
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.window-close {
+    cursor: pointer;
+    background: #C0C0C0;
+    color: black;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 0px 4px;
+    font-size: 0.7rem;
+}
+
+.window-body {
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: #1C1C1A;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.win-btn {
+    background: #C0C0C0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+}
+
+.win-btn:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+
+#paint-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#paint-canvas {
+    background: white;
+    cursor: crosshair;
+    display: block;
+    border: 2px solid #808080;
+}
     </style>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -149,10 +372,12 @@
             <a href="#programming">Programming</a>
             <a href="#animation">Animation</a>
             <a href="#Japanese">Japanese</a>
+            <div id="progressBar"></div>
         </nav>
         <header>
             <p>Welcome</p>
-            <h1>My Creative Corner</h1>
+            <p id="funFact"></p>
+            <h1 id="siteTitle"></h1>
             <p>A little space on the internet for the things I love - voice acting, programming, animation, and learning Japanese.</p>
             <button id="darkToggle">Dark Mode</button>
         </header>
@@ -161,7 +386,9 @@
             <section id="voice-acting">
                 <p>Hobby 01</p>
                 <h2>Voice Acting</h2>
+                <div class="img-wrap">
                 <img src="Voice acting.jpg" alt="Recording booth" />
+                </div>
                 <p>Voice acting is a great way to get away from the stress of life, especially when you do it with your friends. I love watching a character come to life because they are given a voice, it's honestly a pretty special feeling.</p>
                 <p>I have done a few fan dubs and have actually voice acted for a custom character once before. It was very entertaining and almost fills you with a sense of pride to see your voice emitting from this creation.</p>
             </section>
@@ -169,7 +396,9 @@
             <section id="programming">
                 <p>Hobby 02</p>
                 <h2>Programming</h2>
+                <div class="img-wrap">
                 <img src="progammer-code-coding-16-10-2024-1729112992-hd-wallpaper-2359122482.png" alt="Code stuff" />
+                </div>
                 <p>Programming as been a bit of a fickle interest for me, mainly because I usually learn on sporadic bursts of inspiration. The very few things I have tried "Programming" have been: Video game creation, Website building, and app designing.</p>
                 <p>I haven't been officially diagnosed with ADHD but I feel that it's a pretty big factor in learning experiences for me. Either I'll hyper focus or I'll completely lose all interest in a subject. So while I love to program, I often find it difficult to keep consistancy.</p>
             </section>
@@ -177,21 +406,268 @@
             <section id="animation">
                 <p>Hobby 03</p>
                 <h2>Animation</h2>
+                <div class="img-wrap">
                 <img src="animation image.jpg" alt="Animating" />
+                </div>
                 <p>Animation is an interesting topic for me because it falls in very close with my love for game design. I am not very great at building the game itself, but I do enjoy animating whilst my friend actually does all of the complex stuff.</p>
             </section>
 
             <section id="Japanese">
                 <p>Hobby 04</p>
                 <h2>Learning Japanese</h2>
+                <div class="img-wrap">
                 <img src="Japanese dictionary image.jpg" alt="Japan" />
+                </div>
                 <p>I find the Japanese language quite fun and rather elegant. I don't take much interest in the culture but I figure it'd be important to learn it anyway, just incase I happen to speak with a native. I do quite enjoy the entertainment such as: Movies, cartoons, books, and games.</p>
             </section>
         </main>
         <footer>
             <p>Made with care - My Creative Corner</p>
+            <span id="vintagePC">🖥️</span>
         </footer>
+        
+<div id="os-overlay">
+    <div id="desktop">
+
+        <div id="taskbar">
+            <span id="start-btn">⊞ Start</span>
+            <span id="clock"></span>
+            <span id="power-btn">❌</span>
+        </div>
+        <div class="app-icon" id="open-paint">
+            🎨
+            <span>Paint</span>
+        </div>
+        <div class="app-icon" id="open-docs">
+            📁
+            <span>My Documents</span>
+        </div>
+
+        <div class="app-icon" id="open-error">
+            ⚠️
+            <span>Definitely Not A Virus</span>
+        </div>
+
+        <div class="app-icon" id="open-mines">
+            💣
+        </div>
+
+<div class="window" id="paint-window">
+    <div class="window-titlebar">
+        <span>🎨 Paint</span>
+        <span class="window-close" id="close-paint">✕</span>
+    </div>
+    <div class="window-body">
+        <div id="paint-toolbar">
+            <input type="color" id="paint-color" value="#000000" title="Pick a color"/>
+            <button class="win-btn" id="paint-clear">Clear</button>
+            <input type="range" id="brush-size" min="2" max="20" value="5" title="Brush size"/>
+        </div>
+        <canvas id="paint-canvas" width="400" height="280"></canvas>
+    </div>
+</div>
+
+<div class="window" id="error-window">
+    <div class="window-titlebar">
+        <span>⚠️ Critical Error</span>
+        <span class="window-close" id="close-error">✕</span>
+    </div>
+    <div class="window-body">
+        <p id="error-message">An unknown error has occurred.</p>
+        <div class="window-buttons">
+            <button class="win-btn" id="new-error">Generate Error</button>
+            <button class="win-btn" id="ignore-error">Ignore</button>
+        </div>
+    </div>
+</div>
+        
+    </div>
+    <div class="window-body">
+        <p id="error-message">An unknown error has occurred.</p>
+        <div class="window-buttons">
+            <button class="win-btn" id="new-error">Generate Error</button>
+            <button class="win-btn" id="ignore-error">Ignore</button>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div id="magnifier-icon">🔍</div>
+<div id="magnifier-lens"></div>
+
         <script>
+
+
+const paintCanvas = document.getElementById('paint-canvas');
+const ctx = paintCanvas.getContext('2d');
+let painting = false;
+
+document.getElementById('open-paint').addEventListener('click', function() {
+    document.getElementById('paint-window').style.display = 'block';
+});
+
+document.getElementById('close-paint').addEventListener('click', function() {
+    document.getElementById('paint-window').style.display = 'none';
+});
+
+document.getElementById('paint-clear').addEventListener('click', function() {
+    ctx.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
+});
+
+paintCanvas.addEventListener('mousedown', function(e) {
+    painting = true;
+    ctx.beginPath();
+    ctx.moveTo(e.offsetX, e.offsetY);
+});
+
+paintCanvas.addEventListener('mousemove', function(e) {
+    if (!painting) return;
+    ctx.lineWidth = document.getElementById('brush-size').value;
+    ctx.strokeStyle = document.getElementById('paint-color').value;
+    ctx.lineCap = 'round';
+    ctx.lineTo(e.offsetX, e.offsetY);
+    ctx.stroke();
+});
+
+paintCanvas.addEventListener('mouseup', function() { painting = false; });
+paintCanvas.addEventListener('mouseleave', function() { painting = false; });
+
+
+const errors = [
+    "ERROR 404: Motivation not found.",
+    "WARNING: Coffee levels critically low.",
+    "FATAL ERROR: Too many browser tabs open.",
+    "ERROR 42: The answer to life could not be loaded.",
+    "WARNING: Keyboard not found. Press any key to continue.",
+    "ERROR: Sleep.exe has stopped working.",
+    "CRITICAL: Your cat has walked across the keyboard.",
+    "ERROR 101: Brain.dll failed to initialize.",
+    "WARNING: Fridge has been opened 7 times with no new food.",
+    "ERROR: Monday detected. System shutting down."
+];
+
+document.getElementById('open-error').addEventListener('click', function() {
+    document.getElementById('error-window').style.display = 'block';
+    document.getElementById('error-message').textContent = errors[Math.floor(Math.random() * errors.length)];
+});
+
+document.getElementById('close-error').addEventListener('click', function() {
+    document.getElementById('error-window').style.display = 'none';
+});
+
+document.getElementById('ignore-error').addEventListener('click', function() {
+    document.getElementById('error-window').style.display = 'none';
+});
+
+document.getElementById('new-error').addEventListener('click', function() {
+    document.getElementById('error-message').textContent = errors[Math.floor(Math.random() * errors.length)];
+});
+
+// OS overlay
+const vintagePC = document.getElementById('vintagePC');
+const osOverlay = document.getElementById('os-overlay');
+const powerBtn = document.getElementById('power-btn');
+
+vintagePC.addEventListener('click', function() {
+    osOverlay.style.display = 'block';
+});
+
+powerBtn.addEventListener('click', function() {
+    osOverlay.style.display = 'none';
+});
+
+// Clock
+function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('clock').textContent = hours + ':' + minutes + ' ' + ampm;
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+
+const facts = [
+    "The first voice actor ever recorded was Thomas Edison in 1877.",
+    "The term 'bug' in programming comes from an actual moth found in a computer in 1947.",
+    "The first animated film ever made was Fantasmagorie, created in France in 1908.",
+    "Japanese has three separate writing systems — Hiragana, Katakana and Kanji.",
+    "Voice actors for The Simpsons have been recording since 1989.",
+    "The first programming language was created by Ada Lovelace in the 1840s.",
+    "It takes about 24 frames per second to make animation look smooth to the human eye.",
+    "There are over 50,000 characters in the Japanese writing system.",
+    "Some voice actors can do over 400 different character voices.",
+    "Python, one of the most popular programming languages, was named after Monty Python.",
+    "Walt Disney's animators were called the 'Nine Old Men'.",
+    "The word 'anime' is simply the Japanese abbreviation of the word animation."
+];
+
+const randomFact = facts[Math.floor(Math.random() * facts.length)];
+document.getElementById('funFact').textContent = "✦ Did you know? " + randomFact;
+
+
+
+const magIcon = document.getElementById('magnifier-icon');
+const magLens = document.getElementById('magnifier-lens');
+let magActive = false;
+
+magIcon.addEventListener('click', function() {
+    magActive = !magActive;
+
+    if (magActive) {
+        magIcon.classList.add('outline');
+        magLens.style.display = 'block';
+    } else {
+        magIcon.classList.remove('outline');
+        magLens.style.display = 'none';
+    }
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (!magActive) return;
+
+    const x = e.clientX;
+    const y = e.clientY;
+    const size = 150;
+    const zoom = 2.5;
+
+    magLens.style.left = (x - size / 2) + 'px';
+    magLens.style.top = (y - size / 2) + 'px';
+
+    magLens.style.backgroundImage = 'url(' + location.href + ')';
+    magLens.style.backgroundSize = (window.innerWidth * zoom) + 'px ' + (document.body.scrollHeight * zoom)  + 'px';
+    magLens.style.backgroundPosition =
+    '-' + ((x * zoom) - size / 2) + 'px' +
+    '-' + (((y + window.scrollY) * zoom) - size / 2) + 'px';
+});
+
+const title = "My Creative Corner";
+const titleElement = document.getElementById('siteTitle');
+let index = 0;
+
+function typeTitle () {
+    if (index < title.length) {
+        titleElement.textContent += title[index];
+        index++;
+        setTimeout(typeTitle, 80);
+    }
+}
+
+typeTitle();
+
+            const progressBar = document.getElementById('progressBar');
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = progress + '%';
+            });
+
   const toggle = document.getElementById('darkToggle');
 
   toggle.addEventListener('click', function() {
@@ -204,5 +680,8 @@
     }
   });
 </script>
+
+
+
     </body>
 </html>
